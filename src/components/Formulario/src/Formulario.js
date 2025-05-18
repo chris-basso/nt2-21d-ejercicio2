@@ -3,7 +3,8 @@ export default {
   props: [],
   data() {
                 return {
-                    criterioDeBusqueda: '',
+                    criterioDeBusquedaNombreCompleto: '',
+                    criterioDeBusquedaDNI: '',
                     //Aquí, en este array es donde tienen que agregar su información
                     personas: [
                         {
@@ -36,8 +37,11 @@ export default {
             computed: {
                 personasFiltradas() {
                     return this.personas.filter((persona) => {
-                        let registroCompleto = `${persona.nombre} ${persona.apellido} ${persona.dni} ${persona.correo}`
-                        return registroCompleto.toLowerCase().includes(this.criterioDeBusqueda.toLowerCase())
+                        let registroNombreCompleto = `${persona.nombre} ${persona.apellido}`
+                        let registroDNI = `${persona.dni}`
+                        return registroNombreCompleto.toLowerCase()
+                        .includes(this.criterioDeBusquedaNombreCompleto.toLowerCase()) && 
+                        registroDNI.includes(this.criterioDeBusquedaDNI)
                     });
                 }
             },

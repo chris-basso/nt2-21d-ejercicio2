@@ -5,8 +5,10 @@
 
     <div class="card-body">
     <div class="container-fluid mt-3" id="app">
-        <input type="text" class="form-control" v-model="criterioDeBusqueda"
-            placeholder="Ingresar un criterio de busqueda...">
+        <input type="text" class="form-control" v-model="criterioDeBusquedaNombreCompleto"
+            placeholder="Ingresar un nombre o apellido...">
+        <input type="text" class="form-control" v-model="criterioDeBusquedaDNI"
+            placeholder="Ingresar un DNI...">
         <br>
         <div class="card-deck m-0">
             <div class="row">
@@ -22,6 +24,5 @@
             </div>
         </div>
     </div>
-
     </div>
   </section>
