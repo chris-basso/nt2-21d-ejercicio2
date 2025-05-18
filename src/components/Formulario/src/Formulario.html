@@ -1,28 +1,32 @@
-  <section class="card">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<section class="card">
     <div class="card-header">
-      <h3>Alumnos regulares</h3>
+        <h3>Alumnos regulares</h3>
     </div>
 
     <div class="card-body">
-    <div class="container-fluid mt-3" id="app">
-        <input type="text" class="form-control" v-model="criterioDeBusquedaNombreCompleto"
-            placeholder="Ingresar un nombre o apellido...">
-        <input type="text" class="form-control" v-model="criterioDeBusquedaDNI"
-            placeholder="Ingresar un DNI...">
-        <br>
-        <div class="card-deck m-0">
-            <div class="row">
-                <div class="col" v-for="persona in personasFiltradas">
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <h5 class="card-title">{{getNombreCompleto(persona)}}</h5>
-                            <p class="card-text">dni {{persona.dni}}</p>
-                            <a href="#" class="card-link">{{persona.correo}}</a>
+        <div class="container-fluid mt-3" id="app">
+            <input type="text" class="form-control" v-model="criterioDeBusquedaNombreCompleto"
+                placeholder="Ingresar un nombre o apellido...">
+            <input type="number" class="form-control" v-model="criterioDeBusquedaDNI" placeholder="Ingresar un DNI...">
+            <br>
+            <div class="alert alert-warning mt-2" v-show="mostrarAdvertencia" role="alert">
+                <i class="fas fa-exclamation-triangle"></i>
+                Por favor, ingrese al menos 3 caracteres en alguno de los campos de búsqueda
+            </div>
+            <div class="card-deck m-0">
+                <div class="row">
+                    <div class="col" v-for="persona in personasFiltradas" v-show="!mostrarAdvertencia">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">{{getNombreCompleto(persona)}}</h5>
+                                <p class="card-text">dni {{persona.dni}}</p>
+                                <a href="#" class="card-link">{{persona.correo}}</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
-  </section>
+</section>
